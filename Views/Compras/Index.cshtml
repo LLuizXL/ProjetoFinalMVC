@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Compra>
+
+@{
+    ViewData["Title"] = "Index";
+
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("images/background3.jpg")')!important;
+                opacity: 0.8;
+            }
+        </style>
+    }
+
+}
+
+<h1 class="text-center index-paginas">Compras</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        ADICIONAR
+
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.FornecedorId)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.DataCompra)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+            <th class="custom-table text-light"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.FornecedorId)
+            </td>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.DataCompra)
+            </td>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.ValorTotal)
+            </td>
+                <td class="custom-table text-light">
+                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.CompraId">
+                        Editar
+                    </a>
+                    <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.CompraId">
+                        Deletar
+                    </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

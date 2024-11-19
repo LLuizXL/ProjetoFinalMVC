@@ -1,0 +1,41 @@
+﻿@model ProjetoBackend.Models.Compra
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="index-paginas text-center">Deletar</h1>
+
+
+<h4 class="texto-sec text-center text-secondary">COMPRAS</h4>
+<h3 class="texto-sec text-center text-light">Tem certeza que deseja excluir esse item?</h3>
+
+<div>
+    
+    <dl class="row">
+        <dt class = "col-sm-2 text-light mt-3">
+            @Html.DisplayNameFor(model => model.FornecedorId)
+        </dt>
+        <dd class = "col-sm-10 text-light">
+            @Html.DisplayFor(model => model.FornecedorId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataCompra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataCompra)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CompraId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

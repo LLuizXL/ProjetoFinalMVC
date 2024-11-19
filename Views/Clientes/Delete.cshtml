@@ -1,0 +1,95 @@
+﻿@model ProjetoBackend.Models.Cliente
+
+@{
+    ViewData["Title"] = "Delete";
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background3.jpg")') !important;
+                opacity: 0.8;
+                background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: cover; /* Resize the background image to cover the entire container */
+            }
+        </style>
+    }
+}
+
+<h1 class="index-paginas text-center">Deletar</h1>
+
+<h3 class="texto-sec text-center text-light">Tem certeza que deseja excluir esse Cliente?</h3>
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col">
+        <div class="table-wrapper p-3 bg-form rounded-3 mb-3">
+            <dl class="row text-light">
+                <dt class="col-sm">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+                <dd class="col-sm me-1">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                </dl>
+
+
+                <dl class="row text-light">
+                <dt class="col-sm">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm me-1">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                </dl>
+
+                <dl class="row text-light">
+                <dt class="col-sm">
+                    @Html.DisplayNameFor(model => model.CnpjCpf)
+                </dt>
+                <dd class="col-sm me-1">
+                    @Html.DisplayFor(model => model.CnpjCpf)
+                </dd>
+                </dl>
+
+            <dl class="row text-light">
+                <dt class="col-sm">
+                    @Html.DisplayNameFor(model => model.Celular)
+                </dt>
+                <dd class="col-sm me-1">
+                    @Html.DisplayFor(model => model.Celular)
+                </dd>
+                </dl>
+
+            <dl class="row text-light">
+                <dt class="col-sm">
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </dt>
+                <dd class="col-sm me-1">
+                    @Html.DisplayFor(model => model.DataNascimento)
+                </dd>
+                </dl>
+
+            <dl class="row text-light">
+                <dt class="col-sm">
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </dt>
+                <dd class="col-sm me-1">
+                    @Html.DisplayFor(model => model.DataCadastro)
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+    <div class="col-3"></div>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3 botao">
+        <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-3 botao">
+        <input type="submit" value="Deletar" class="btn btn-danger" />
+    </div>
+</div>
+
+

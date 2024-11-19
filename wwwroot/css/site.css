@@ -1,0 +1,80 @@
+
+*{
+    box-sizing: border-box;
+}
+
+tml {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.custom-table {
+    background: #2B002D !important;
+}
+
+.index-paginas {
+    color: aqua;
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-weight: 450;
+    font-size: 65px;
+}
+
+.botao {
+    font-family: 'Bebas Neue';
+    font-weight: 500;
+}
+
+.botao-add {
+    font-family: 'Bebas Neue';
+    font-size: 30px;
+}
+
+.texto-sobre {
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+
+.btn-salvar {
+    font-family: 'Bebas Neue';
+    font-size: 22px;
+}
+
+.bg-form {
+    background-color: #2C2C2F;
+}
+
+.texto-sec {
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+}
+
+.input-form {
+    background-color: #D9D9D9;
+    opacity: 1;
+}
+
+h3 {
+    color: #fff;
+}
+ .montserrat{
+     font-family: 'Montserrat';
+     font-weight: 300;
+ }

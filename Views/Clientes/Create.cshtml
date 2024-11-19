@@ -1,0 +1,144 @@
+﻿@model ProjetoBackend.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+    {
+
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background4.jpg")') !important;
+            }
+        </style>
+
+    }
+
+}
+
+
+
+
+<h1 class="text-center index-paginas">Adicionar Cliente</h1>
+<hr />
+
+
+
+
+<div class="table-wrapper bg-form p-4 text-light rounded-3"
+<form asp-action="Create" class="">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-12 col-md-7">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control border-dark border-3 input-form" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="CnpjCpf" class="control-label"></label>
+                <input asp-for="CnpjCpf" class="form-control border-dark border-3 input-form" />
+                <span asp-validation-for="CnpjCpf" class="text-danger"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control border-dark border-2 input-form" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="col-12 col-md">
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label "></label>
+                <input asp-for="Celular" class="form-control border-dark border-2 input-form" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12 col-md-5">
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control border-dark border-2 input-form" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-12 col-md-4">
+            <input type="hidden" asp-for="CadastroAtivo" class="form-control" />
+
+            <div class="form-group">
+                <label asp-for="DataCadastro" class="control-label"></label>
+                <input asp-for="DataCadastro" class="form-control border-dark border-2 input-form" />
+                <span asp-validation-for="DataCadastro" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+
+
+</form>
+</div>
+<div class="row">
+    <div class="col-12 mt-4 text-center text-light botao">
+        <h3>Lembre-se de checar as informações antes de adicionar.</h3>
+    </div>
+</div>
+
+
+<!--
+<div class="row mt-2">
+    <div class="col-2">
+    </div>
+    <div class="col-4">
+        <input type="submit" value="Criar" class="btn btn-success btn-salvar btn-lg" />
+    </div>
+
+
+
+    <div class="col-2"></div>
+
+    <div class="col-4">
+        <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
+    </div>
+</div>
+-->
+
+<div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-md-4 mt-4">
+        <input type="submit" value="Criar" class="btn btn-success btn-salvar btn-lg" />
+    </div>
+
+
+
+
+
+    <div class="col col-md-4 mt-4">
+        <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
+    </div>
+
+    <div class="col-2"></div>
+
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+

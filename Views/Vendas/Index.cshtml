@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Venda>
+
+@{
+    ViewData["Title"] = "Página de Vendas";
+}
+
+<h1 class="text-center index-paginas">Vendas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.NotaFiscal)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.DataVenda)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+            <th class="custom-table text-light"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="custom-table text-light">
+                    @Html.DisplayFor(modelItem => item.NotaFiscal)
+                </td>
+                <td class="custom-table text-light">
+                    @Html.DisplayFor(modelItem => item.Cliente.Celular)
+                </td>
+                <td class="custom-table text-light">
+                    @Html.DisplayFor(modelItem => item.DataVenda)
+                </td>
+                <td class="custom-table text-light">
+                    @Html.DisplayFor(modelItem => item.ValorTotal)
+                </td>
+                <td class="custom-table text-light">
+                 
+
+                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.VendaId">
+                        Editar
+                    </a>
+                    <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.VendaId">
+                        Deletar
+                    </a>
+
+                    <div class="dropdown">
+                        <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Detalhes
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <a class="text-light" asp-controller="ItensVendas" asp-action="Index" asp-route-id="@item.VendaId">Produtos</a>
+                            <a class="text-decoration-none" asp-controller="ServicosVendas" asp-action="Index" asp-route-id="@item.VendaId">Serviços</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

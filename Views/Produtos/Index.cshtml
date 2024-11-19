@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+
+
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("images/background3.jpg")') !important;
+                opacity: 0.8;
+            }
+        </style>
+    }
+}
+
+
+
+
+
+
+<h1 class="text-sm-center text-center index-paginas text-">Produtos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        ADICIONAR
+
+    </a>
+</p>
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col-md-2 custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th class="col-md-2 custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th class="col-md-2 custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Estoque)
+                </th>
+                <th class="col-md-2 custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th class="col-md-4 custom-table text-light"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Estoque)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                    </td>
+                    <td class="custom-table text-light">
+                        <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.ProdutoId">Edit</a>
+
+                        <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.ProdutoId">Delete</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

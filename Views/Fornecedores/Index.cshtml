@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Cadastro de Fornecedores";
+
+
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("images/background3.jpg")') !important;
+                opacity: 0.8;
+            }
+        </style>
+    }
+
+}
+
+<h1 class="text-center index-paginas">Fornecedores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        ADICIONAR
+
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th class="custom-table text-light">
+                @Html.DisplayNameFor(model => model.CnpjCpf)
+            </th>
+            <th class="custom-table text-light"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+                <td class="custom-table text-light">
+                @Html.DisplayFor(modelItem => item.CnpjCpf)
+            </td>
+                <td class="custom-table text-light">
+                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.FornecedorId">
+                        Editar
+                    </a>
+                    <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.FornecedorId">
+                        Deletar
+                    </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

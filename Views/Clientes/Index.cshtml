@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ProjetoBackend.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Cadastro de Clientes";
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background3.jpg")') !important;
+                opacity: 0.8;
+            }
+        </style>
+    }
+}
+
+<h1 class="text-center index-paginas"> Clientes </h1>
+
+
+<div class="row mb-4">
+    <div class=" col-md-4">
+
+        <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            ADICIONAR
+
+        </a>
+    </div>
+
+    <div class=" col-md-5"></div>
+
+    <div class="col col-md-offset-3">
+        <form asp-action="Search" method="get">
+            <input type="text" name="nome" placeholder="Buscar cliente por nome..." />
+            <button class="btn btn-info btn-outline-dark text-light" type="submit"><ion-icon name="search" class="me-1"></ion-icon>Buscar</button>
+        </form>
+    </div>
+</div>
+<div class="table-responsive">
+
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.CnpjCpf)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Celular)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.DataCadastro)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.CadastroAtivo)
+                </th>
+                <th class="custom-table text-light"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.CnpjCpf)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Celular)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.DataNascimento)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.CadastroAtivo)
+                    </td>
+                    <td class="custom-table text-light">
+                        <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.ClienteId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.ClienteId">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
