@@ -13,30 +13,35 @@
 
     </a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th class="custom-table text-light">
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th class="custom-table text-light"></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td class="custom-table text-light">
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-                <td class="custom-table text-light">
-                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.CategoriaId">
-                        Editar
-                    </a>
-                    <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.CategoriaId">
-                        Deletar
-                    </a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th class="custom-table text-light"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td class="custom-table text-light">
+                        <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.CategoriaId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.CategoriaId">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
