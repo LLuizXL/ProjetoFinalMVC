@@ -93,7 +93,6 @@
 </div>
 
 
-<!--
 <div class="row mt-2">
     <div class="col-2">
     </div>
@@ -103,34 +102,35 @@
 
 
 
-    <div class="col-2"></div>
+    <div class="col-1 col-md-2"></div>
 
-    <div class="col-4">
+    <div class="col-5 col-md-4">
         <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
     </div>
 </div>
--->
+
+
+<!--
 
 <div class="row">
-    <div class="col-2">
-    </div>
-    <div class="col-md-4 mt-4">
-        <input type="submit" value="Criar" class="btn btn-success btn-salvar btn-lg" />
-    </div>
+     <div class="col-1">
+     </div>
+     <div class="col-4 mt-4">
+         <input type="submit" value="Criar" class="btn btn-success btn-salvar btn-lg" />
+     </div>
 
 
+     <div class="col-2"></div>
 
 
+     <div class="col-4 mt-4">
+         <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
+     </div>
 
-    <div class="col col-md-4 mt-4">
-        <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
-    </div>
+     <div class="col-1"></div>
 
-    <div class="col-2"></div>
-
-</div>
-
-
+ </div>
+-->
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

@@ -2,14 +2,33 @@
 
 @{
     ViewData["Title"] = "Página de Vendas";
+    {
+
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background3.jpg")') !important;
+            }
+        </style>
+
+    }
 }
 
 <h1 class="text-center index-paginas">Vendas</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<div class="row mb-4">
+    <div class=" col-md-4 col-5">
+
+        <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            ADICIONAR
+
+        </a>
+    </div>
+    </div>
+
+<div class="table-responsive">
+
+<table class="table custom-table">
     <thead>
         <tr>
             <th class="custom-table text-light">
@@ -44,7 +63,7 @@
                     @Html.DisplayFor(modelItem => item.ValorTotal)
                 </td>
                 <td class="custom-table text-light">
-                 
+
 
                     <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.VendaId">
                         Editar
@@ -53,20 +72,29 @@
                         Deletar
                     </a>
 
-                    <div class="dropdown">
-                        <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Detalhes
+                    <ion-icon class="dropdown-toggle ms-2 text-warning" name="ellipsis-vertical-outline" data-bs-toggle="dropdown" aria-expanded="false"> </ion-icon>
+
+                    <div class="dropdown-menu dropdown-menu-dark">
+                        <a class=" text-decoration-none text-light ms-3" asp-controller="ItensVendas" asp-action="Index" asp-route-id="@item.VendaId">
+                            Itens da compra
+
                         </a>
 
-                        <div class="dropdown-menu">
-                            <a class="text-light" asp-controller="ItensVendas" asp-action="Index" asp-route-id="@item.VendaId">Produtos</a>
-                            <a class="text-decoration-none" asp-controller="ServicosVendas" asp-action="Index" asp-route-id="@item.VendaId">Serviços</a>
-                        </div>
+                        <hr class="dropdown-divider-light">
+
+
+                        <a class="text-decoration-none text-light ms-3" asp-controller="ServicosVendas" asp-action="Index" asp-route-id="@item.VendaId">
+                            Serviços
+
+                        </a>
+
                     </div>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
 
 
