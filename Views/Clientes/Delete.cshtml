@@ -29,26 +29,26 @@
                 <dd class="col-sm me-1">
                     @Html.DisplayFor(model => model.Nome)
                 </dd>
-                </dl>
+            </dl>
 
 
-                <dl class="row text-light">
+            <dl class="row text-light">
                 <dt class="col-sm">
                     @Html.DisplayNameFor(model => model.Email)
                 </dt>
                 <dd class="col-sm me-1">
                     @Html.DisplayFor(model => model.Email)
                 </dd>
-                </dl>
+            </dl>
 
-                <dl class="row text-light">
+            <dl class="row text-light">
                 <dt class="col-sm">
                     @Html.DisplayNameFor(model => model.CnpjCpf)
                 </dt>
                 <dd class="col-sm me-1">
                     @Html.DisplayFor(model => model.CnpjCpf)
                 </dd>
-                </dl>
+            </dl>
 
             <dl class="row text-light">
                 <dt class="col-sm">
@@ -57,7 +57,7 @@
                 <dd class="col-sm me-1">
                     @Html.DisplayFor(model => model.Celular)
                 </dd>
-                </dl>
+            </dl>
 
             <dl class="row text-light">
                 <dt class="col-sm">
@@ -66,7 +66,7 @@
                 <dd class="col-sm me-1">
                     @Html.DisplayFor(model => model.DataNascimento)
                 </dd>
-                </dl>
+            </dl>
 
             <dl class="row text-light">
                 <dt class="col-sm">
@@ -81,15 +81,19 @@
     </div>
     <div class="col-3"></div>
 </div>
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-3 botao">
-        <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ClienteId" />
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3 botao">
+            <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-3 botao">
+            <input type="submit" value="Deletar" class="btn btn-danger" />
+        </div>
     </div>
-    <div class="col-2"></div>
-    <div class="col-3 botao">
-        <input type="submit" value="Deletar" class="btn btn-danger" />
-    </div>
-</div>
+</form>
 
 

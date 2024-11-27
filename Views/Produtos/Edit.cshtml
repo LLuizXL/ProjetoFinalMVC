@@ -1,10 +1,22 @@
 ﻿@model ProjetoBackend.Models.Produto
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Produto";
+
+    {
+
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background4.jpg")') !important;
+            }
+        </style>
+
+    }
 }
 
 <h1 class="text-center index-paginas">Editar Produto</h1>
+
+
 
 <hr />
 <div class="table-wrapper bg-form p-4 rounded-3 text-light">
@@ -50,12 +62,28 @@
 
     </form>
 </div>
-<div class="form-group mt-3">
-    <button type="submit" class="btn btn-success btn-lg d-flex align-itens-center justify-content-center btn-salvar"> Salvar </button>
+
+<div class="row">
+    <div class="col-12 mt-4 text-center text-light botao">
+        <h3>Lembre-se de checar as informações antes de editar.</h3>
+    </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+
+<div class="row mt-2">
+    <div class="col-2">
+    </div>
+    <div class="col-4">
+        <input type="submit" class="btn btn-success btn-lg d-flex align-itens-center justify-content-center btn-salvar" />
+    </div>
+
+
+
+    <div class="col-1 col-md-2"></div>
+
+    <div class="col-5 col-md-4">
+        <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
+    </div>
 </div>
 
 @section Scripts {

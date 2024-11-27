@@ -1,5 +1,5 @@
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    margin-bottom: 240px;
 }
 
 .custom-table {
@@ -74,7 +74,28 @@ body {
 h3 {
     color: #fff;
 }
- .montserrat{
-     font-family: 'Montserrat';
-     font-weight: 300;
- }
+
+.montserrat {
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+.margem-topo{
+    margin-top: 150px
+}
+
+.margem {
+    margin-bottom: 100px;
+
+}
+
+center ~ * {
+    display: none !important;
+}
+
+.bebas-medio {
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+}
+.bebas {
+    font-family: 'Bebas Neue';
+}

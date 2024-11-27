@@ -1,7 +1,7 @@
 ﻿@model ProjetoBackend.Models.Cliente
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Cliente";
     {
         <style>
             body {
@@ -15,11 +15,11 @@
 <h1 class="text-center index-paginas">Editar Cliente</h1>
 <hr />
 
+<form asp-action="Edit" class="">
 
-<div class="table-wrapper p-4 rounded-3 bg-form text-light">
+    <div class="table-wrapper p-4 rounded-3 bg-form text-light">
 
 
-    <form asp-action="Edit" class="">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="ClienteId" />
         <div class="row">
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-3">
-                <div class="form-group">
+                <div class="form-check form-switch">
                     <label asp-for="CadastroAtivo" class="control-label"></label>
                     <input asp-for="CadastroAtivo" class="form-control" />
                     <span asp-validation-for="CadastroAtivo" class="text-danger"></span>
@@ -89,29 +89,30 @@
 
 
 
-    </form>
-</div>
-<div class="row">
-    <div class="col-12 mt-4 text-center text-light botao">
-        <h3>Lembre-se de checar as alterações antes de salvar.</h3>
     </div>
-</div>
-<div class="row mt-2">
-    <div class="col-2">
-    </div>
-    <div class="col-4 mt-2">
-        <button type="submit" class="botao btn btn-success btn-lg d-flex align-itens-center justify-content-center"> Salvar </button>
+    <div class="row">
+        <div class="col-12 mt-4 text-center text-light botao">
+            <h3>Lembre-se de checar as informações antes de editar.</h3>
+        </div>
     </div>
 
 
-    <div class="col-1"></div>
+    <div class="row mt-2">
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+            <input type="submit" class="btn btn-success btn-lg d-flex align-itens-center justify-content-center btn-salvar" />
+        </div>
 
-    <div class="col-1 mt-2">
-        <a class="btn btn-secondary btn-lg botao" asp-action="Index">Cancelar</a>
+
+
+        <div class="col-1 col-md-2"></div>
+
+        <div class="col-5 col-md-4">
+            <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
+        </div>
     </div>
-
-    <div class="col-2"></div>
-</div>
+</form>
 
 
 @section Scripts {

@@ -34,7 +34,7 @@ namespace ProjetoBackend.Controllers
                 return RedirectToAction(nameof(Index)); // Redirect to main Index
             }
 
-            var Fornecedores = await _context.Fornecedores.Where(c => c.Nome.Contains(nome)).ToListAsync();
+            var Fornecedores = await _context.Fornecedores.Where(c => c.Nome.Contains(nome) || c.CnpjCpf.Contains(nome)).ToListAsync();
             return View("Index", Fornecedores.OrderBy(c => c.Nome)); // Reuse the existing Index view
         }
 

@@ -17,13 +17,25 @@
 
 <h1 class="text-center index-paginas">Fornecedores</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
-        <ion-icon name="add-circle-outline"></ion-icon>
-        ADICIONAR
+<div class="row">
+    <div class="col">
+        <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            ADICIONAR
 
-    </a>
-</p>
+        </a>
+    </div>
+    <div class="col">
+
+        <form asp-action="Search" method="get">
+            <input type="text" name="nome" placeholder="Buscar por Nome / CNPJ" />
+            <button class="btn btn-info btn-outline-dark text-light" type="submit"><ion-icon name="search"></ion-icon></button>
+        </form>
+    </div>
+</div>
+
+
+
 <div class="table-responsive">
 
     <table class="table">

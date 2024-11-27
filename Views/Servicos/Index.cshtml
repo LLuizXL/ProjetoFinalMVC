@@ -34,19 +34,20 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
                 <td class="custom-table text-light">
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
                 <td class="custom-table text-light">
-                @Html.DisplayFor(modelItem => item.ValorServico)
-            </td>
+                    @Html.DisplayFor(modelItem => item.ValorServico)
+                </td>
                 <td class="custom-table text-light">
-                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.ServicoId">Edit</a> 
+                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.ServicoId">Edit</a>
                     <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.ServicoId">Delete</a>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -2,6 +2,15 @@
 
 @{
     ViewData["Title"] = "Create";
+    {
+
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background4.jpg")') !important;
+            }
+        </style>
+
+    }
 }
 
 <h1>Create</h1>
@@ -9,16 +18,16 @@
 <h4>ItemCompra</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <form asp-action="Create">
+        <div class="col-md-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CompraId" class="control-label"></label>
-                <select asp-for="CompraId" class ="form-control" asp-items="ViewBag.CompraId"></select>
+                <select asp-for="CompraId" class="form-control" asp-items="ViewBag.CompraId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ProdutoId" class="control-label"></label>
-                <select asp-for="ProdutoId" class ="form-control" asp-items="ViewBag.ProdutoId"></select>
+                <select asp-for="ProdutoId" class="form-control" asp-items="ViewBag.ProdutoId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Quantidade" class="control-label"></label>
@@ -28,8 +37,8 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
+    </form>
+</div>
 </div>
 
 <div>
@@ -37,5 +46,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

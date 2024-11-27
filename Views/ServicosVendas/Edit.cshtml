@@ -2,31 +2,44 @@
 
 @{
     ViewData["Title"] = "Edit";
+    {
+
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background4.jpg")') !important;
+            }
+        </style>
+
+    }
 }
 
-<h1>Edit</h1>
+<h1 class="text-center index-paginas"></h1>
 
-<h4>ServicoVenda</h4>
 <hr />
+
+<div class="table-wrapper bg-form p-3 rounded-3">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ServicoVendaId" />
+        <div class="row">
+        </div>
+    </form>
+</div>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ServicoVendaId" />
-            <div class="form-group">
-                <label asp-for="ServicoId" class="control-label"></label>
-                <select asp-for="ServicoId" class="form-control" asp-items="ViewBag.ServicoId"></select>
-                <span asp-validation-for="ServicoId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VendaId" class="control-label"></label>
-                <select asp-for="VendaId" class="form-control" asp-items="ViewBag.VendaId"></select>
-                <span asp-validation-for="VendaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        <div class="form-group">
+            <label asp-for="ServicoId" class="control-label"></label>
+            <select asp-for="ServicoId" class="form-control" asp-items="ViewBag.ServicoId"></select>
+            <span asp-validation-for="ServicoId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="VendaId" class="control-label"></label>
+            <select asp-for="VendaId" class="form-control" asp-items="ViewBag.VendaId"></select>
+            <span asp-validation-for="VendaId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
     </div>
 </div>
 
@@ -35,5 +48,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
