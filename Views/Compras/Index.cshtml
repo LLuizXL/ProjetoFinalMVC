@@ -29,6 +29,9 @@
         <thead>
             <tr>
                 <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Pedido)
+                </th>
+                <th class="custom-table text-light">
                     @Html.DisplayNameFor(model => model.FornecedorId)
                 </th>
                 <th class="custom-table text-light">
@@ -45,7 +48,10 @@
             {
                 <tr>
                     <td class="custom-table text-light">
-                        @Html.DisplayFor(modelItem => item.FornecedorId)
+                        @Html.DisplayFor(modelItem => item.Pedido)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
                     </td>
                     <td class="custom-table text-light">
                         @Html.DisplayFor(modelItem => item.DataCompra)
@@ -59,6 +65,9 @@
                         </a>
                         <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.CompraId">
                             Deletar
+                        </a>
+                        <a class=" text-decoration-none text-light ms-3" asp-controller="ItensCompras" asp-action="Index" asp-route-id="@item.CompraId">
+                            Itens
                         </a>
                     </td>
                 </tr>

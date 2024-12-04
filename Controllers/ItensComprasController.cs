@@ -20,9 +20,10 @@ namespace ProjetoBackend.Controllers
         }
 
         // GET: ItensCompras
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid? id)
         {
             var applicationDbContext = _context.ItensCompra.Include(i => i.Compra).Include(i => i.Produto);
+            ViewData["CompraId"] = id;
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -47,9 +48,9 @@ namespace ProjetoBackend.Controllers
         }
 
         // GET: ItensCompras/Create
-        public IActionResult Create()
+        public IActionResult Create(Guid? id)
         {
-            ViewData["CompraId"] = new SelectList(_context.Compras, "CompraId", "CompraId");
+            ViewData["CompraId"] = id;
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "ProdutoId", "Nome");
             return View();
         }
@@ -59,16 +60,17 @@ namespace ProjetoBackend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ItemCompraId,CompraId,ProdutoId,Quantidade")] ItemCompra itemCompra)
+        public async Task<IActionResult> Create(Guid? id, [Bind("ItemCompraId,CompraId,ProdutoId,Quantidade")] ItemCompra itemCompra)
         {
             if (ModelState.IsValid)
             {
                 itemCompra.ItemCompraId = Guid.NewGuid();
                 _context.Add(itemCompra);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["CompraId"] = id;
+                return RedirectToAction("Index", new { id = id });
             }
-            ViewData["CompraId"] = new SelectList(_context.Compras, "CompraId", "CompraId", itemCompra.CompraId);
+            ViewData["CompraId"] = id;
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "ProdutoId", "Nome", itemCompra.ProdutoId);
             return View(itemCompra);
         }

@@ -19,10 +19,10 @@
 
 
 <hr />
-<div class="table-wrapper bg-form p-4 rounded-3 text-light">
+<form asp-action="Edit">
+    <div class="table-wrapper bg-form p-4 rounded-3 text-light">
 
 
-    <form asp-action="Edit">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="ProdutoId" />
         <div class="row">
@@ -60,30 +60,30 @@
             </div>
         </div>
 
-    </form>
+
+    </div>
+    <div class="row">
+        <div class="col-12 mt-4 text-center text-light botao">
+            <h3>Lembre-se de checar as informações antes de editar.</h3>
+        </div>
+    </div>
+
+
+    <div class="row mt-2">
+        <div class="col-2">
+        </div>
+        <div class="col-4">
+            <input type="submit" class="btn btn-success btn-lg d-flex align-itens-center justify-content-center btn-salvar" />
+        </div>
+</form>
+
+
+
+<div class="col-1 col-md-2"></div>
+
+<div class="col-5 col-md-4">
+    <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
 </div>
-
-<div class="row">
-    <div class="col-12 mt-4 text-center text-light botao">
-        <h3>Lembre-se de checar as informações antes de editar.</h3>
-    </div>
-</div>
-
-
-<div class="row mt-2">
-    <div class="col-2">
-    </div>
-    <div class="col-4">
-        <input type="submit" class="btn btn-success btn-lg d-flex align-itens-center justify-content-center btn-salvar" />
-    </div>
-
-
-
-    <div class="col-1 col-md-2"></div>
-
-    <div class="col-5 col-md-4">
-        <a class="btn btn-secondary btn-lg btn-salvar" asp-action="Index">Cancelar</a>
-    </div>
 </div>
 
 @section Scripts {

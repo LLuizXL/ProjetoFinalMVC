@@ -39,7 +39,7 @@ namespace ProjetoBackend.Controllers
         }
 
         // GET: Fornecedores/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -71,6 +71,7 @@ namespace ProjetoBackend.Controllers
         {
             if (ModelState.IsValid)
             {
+                fornecedor.FornecedorId = Guid.NewGuid();
                 _context.Add(fornecedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -79,7 +80,7 @@ namespace ProjetoBackend.Controllers
         }
 
         // GET: Fornecedores/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
@@ -99,7 +100,7 @@ namespace ProjetoBackend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FornecedorId,Nome,Email,Celular,CnpjCpf")] Fornecedor fornecedor)
+        public async Task<IActionResult> Edit(Guid id, [Bind("FornecedorId,Nome,Email,Celular,CnpjCpf")] Fornecedor fornecedor)
         {
             if (id != fornecedor.FornecedorId)
             {
@@ -130,7 +131,7 @@ namespace ProjetoBackend.Controllers
         }
 
         // GET: Fornecedores/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -150,7 +151,7 @@ namespace ProjetoBackend.Controllers
         // POST: Fornecedores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var fornecedor = await _context.Fornecedores.FindAsync(id);
             if (fornecedor != null)
@@ -162,7 +163,7 @@ namespace ProjetoBackend.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FornecedorExists(int id)
+        private bool FornecedorExists(Guid id)
         {
             return _context.Fornecedores.Any(e => e.FornecedorId == id);
         }

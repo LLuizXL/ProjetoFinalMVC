@@ -31,22 +31,17 @@
             <div class="col-12 col-md">
                 <div class="form-group">
                     <label asp-for="DataCompra" class="control-label"></label>
-                    <input asp-for="DataCompra" class="form-control" />
+                    <input asp-for="DataCompra" type="text" value=@DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss") class="form-control" readonly />
                     <span asp-validation-for="DataCompra" class="text-danger"></span>
                 </div>
             </div>
+
         </div>
 
 
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
-                    <label asp-for="ValorTotal" class="control-label"></label>
-                    <input asp-for="ValorTotal" class="form-control" />
-                    <span asp-validation-for="ValorTotal" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
+        <input asp-for="ValorTotal" type="hidden" value=0 class="form-control" />
+        <input asp-for="Pedido" type="hidden" value=0 class="form-control" />
+
     </div>
 
 

@@ -34,7 +34,7 @@ namespace ProjetoBackend.Controllers
                 return RedirectToAction(nameof(Index)); // Redirect to main Index
             }
 
-            var clientes = await _context.Clientes.Where(c => c.Nome.Contains(nome)).ToListAsync();
+            var clientes = await _context.Clientes.Where(c => c.Nome.Contains(nome) || c.CnpjCpf.Contains(nome) || c.Email.Contains(nome)).ToListAsync();
             return View("Index", clientes.OrderBy(c => c.Nome)); // Reuse the existing Index view
         }
 
@@ -95,6 +95,11 @@ namespace ProjetoBackend.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Ativo = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Ativo", Value = "true" },
+                new SelectListItem { Text = "Inativo", Value = "false" }
+            };
             return View(cliente);
         }
 

@@ -22,7 +22,7 @@ namespace ProjetoBackend.Controllers
         // GET: Compras
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Compras.ToListAsync());
+            return View(await _context.Compras.Include(f => f.Fornecedor).ToListAsync());
         }
 
         // GET: Compras/Details/5
@@ -60,6 +60,15 @@ namespace ProjetoBackend.Controllers
             if (ModelState.IsValid)
             {
                 compra.CompraId = Guid.NewGuid();
+                compra.ValorTotal = 0;
+                if (_context.Compras.Max(m => m.Pedido) == null)
+                {
+                    compra.Pedido = 1;
+                }
+                else
+                {
+                    compra.Pedido = _context.Compras.Max(m => m.Pedido) + 1;
+                }
                 _context.Add(compra);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,6 +89,7 @@ namespace ProjetoBackend.Controllers
             {
                 return NotFound();
             }
+            ViewData["FornecedorId"] = new SelectList(_context.Fornecedores, "FornecedorId", "Nome");
             return View(compra);
         }
 

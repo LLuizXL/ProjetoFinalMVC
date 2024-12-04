@@ -15,5 +15,6 @@ namespace ProjetoBackend.Models
         public DateTime? DataCompra { get; set; } = DateTime.Now;
         public double? ValorTotal { get; set; } = 0;
 
+        public int? Pedido { get; set; }
     }
 }

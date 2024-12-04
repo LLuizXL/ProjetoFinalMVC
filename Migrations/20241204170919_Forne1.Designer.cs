@@ -12,8 +12,8 @@ using ProjetoBackend.Data;
 namespace ProjetoBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241022121620_Start")]
-    partial class Start
+    [Migration("20241204170919_Forne1")]
+    partial class Forne1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -290,7 +290,7 @@ namespace ProjetoBackend.Migrations
                     b.Property<Guid>("FornecedorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("FornecedorId1")
+                    b.Property<int?>("Pedido")
                         .HasColumnType("int");
 
                     b.Property<double?>("ValorTotal")
@@ -298,18 +298,16 @@ namespace ProjetoBackend.Migrations
 
                     b.HasKey("CompraId");
 
-                    b.HasIndex("FornecedorId1");
+                    b.HasIndex("FornecedorId");
 
                     b.ToTable("Compras", (string)null);
                 });
 
             modelBuilder.Entity("ProjetoBackend.Models.Fornecedor", b =>
                 {
-                    b.Property<int>("FornecedorId")
+                    b.Property<Guid>("FornecedorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FornecedorId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Celular")
                         .IsRequired()
@@ -534,7 +532,9 @@ namespace ProjetoBackend.Migrations
                 {
                     b.HasOne("ProjetoBackend.Models.Fornecedor", "Fornecedor")
                         .WithMany()
-                        .HasForeignKey("FornecedorId1");
+                        .HasForeignKey("FornecedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Fornecedor");
                 });

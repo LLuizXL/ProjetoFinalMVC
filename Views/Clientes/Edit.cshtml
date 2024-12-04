@@ -76,8 +76,8 @@
             </div>
             <div class="col-12 col-md-3">
                 <div class="form-check form-switch">
-                    <label asp-for="CadastroAtivo" class="control-label"></label>
-                    <input asp-for="CadastroAtivo" class="form-control" />
+                    <label asp-for="CadastroAtivo" class="form-label"></label>
+                    <select asp-for="CadastroAtivo" class="form-control" asp-items="@ViewBag.Ativo"></select>
                     <span asp-validation-for="CadastroAtivo" class="text-danger"></span>
                 </div>
 

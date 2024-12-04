@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProjetoBackend.Models.Cliente>
+﻿    @model IEnumerable<ProjetoBackend.Models.Cliente>
 
 @{
     ViewData["Title"] = "Cadastro de Clientes";
@@ -85,8 +85,17 @@
                     <td class="custom-table text-light">
                         @Html.DisplayFor(modelItem => item.DataCadastro)
                     </td>
-                    <td class="custom-table text-light">
-                        @Html.DisplayFor(modelItem => item.CadastroAtivo)
+                    <td class="custom-table text-light ">
+                        @if (
+                       item.CadastroAtivo == true
+                       )
+                        {
+                            <span><b>Ativo</b></span>
+                        }
+                        else
+                        {
+                            <span><b>Inativo</b></span>
+                        }
                     </td>
                     <td class="custom-table text-light">
                         <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.ClienteId">

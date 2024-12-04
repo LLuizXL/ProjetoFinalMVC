@@ -19,21 +19,8 @@
 <form asp-action="Create">
     <div class="table-wrapper bg-form p-3 rounded-3 text-light">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="row ">
-            <div class="col-12">
-                <div class="form-group">
-                    <label asp-for="VendaId" class="control-label"></label>
-                    <input asp-for="VendaId" class="form-control" value=@ViewData["VendaId"] />
-                </div>
-            </div>
-        </div>
+
         <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label asp-for="ProdutoId" class="control-label"></label>
-                    <select asp-for="ProdutoId" class="form-control" asp-items="ViewBag.ProdutoId" id="produtoId"></select>
-                </div>
-            </div>
             <div class="col-12 col-md-2">
                 <div class="form-group">
                     <label asp-for="Quantidade" class="control-label"></label>
@@ -41,6 +28,15 @@
                     <span asp-validation-for="Quantidade" class="text-danger"></span>
                 </div>
             </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label asp-for="ProdutoId" class="control-label"></label>
+                    <select asp-for="ProdutoId" class="form-control" asp-items="ViewBag.ProdutoId" id="produtoId">
+                        <option>Selecione um produto</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="col-12 col-md">
                 <div class="form-group">
                     <label asp-for="ValorUnitario" class="control-label"></label>
@@ -60,6 +56,8 @@
             </div>
         </div>
 
+        <input asp-for="VendaId" type="hidden" class="form-control" value=@ViewData["VendaId"] />
+
     </div>
 
     <div class="row">
@@ -67,7 +65,7 @@
             <h3>Lembre-se de checar as informações antes de adicionar.</h3>
         </div>
     </div>
-    
+
 
     <div class="row mt-2">
         <div class="col-2">

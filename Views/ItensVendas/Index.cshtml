@@ -1,65 +1,79 @@
 ﻿@model IEnumerable<ProjetoBackend.Models.ItemVenda>
 
 @{
-    ViewData["Title"] = "Index";
-    var idVendaAtual = ViewData["idVendaAtual"];
+    ViewData["Title"] = "Cadastro de Itens Vendidos";
+    var idVendaAtual = ViewData["VendaId"];
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background3.jpg")') !important;
+                opacity: 0.8;
+            }
+        </style>
+    }
+
+
 }
 
 <h1 class="text-center index-paginas">Itens Venda</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
+    <a asp-action="Create" asp-route-id=@idVendaAtual class="btn btn-info btn-lg botao-add text-light">
         <ion-icon name="add-circle-outline"></ion-icon>
         ADICIONAR
 
     </a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Venda)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Produto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorUnitario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorTotal)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div action="table-responsive">
+
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Venda.VendaId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Produto.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ValorUnitario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ValorTotal)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ItemVendaId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ItemVendaId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ItemVendaId">Delete</a>
-                </td>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Venda)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Produto)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.ValorUnitario)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.ValorTotal)
+                </th>
+                <th class="custom-table text-light"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Venda.NotaFiscal)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Produto.Nome)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Quantidade)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.ValorUnitario)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>
+                    <td class="custom-table text-light">
+                        <a asp-action="Edit" asp-route-id="@item.ItemVendaId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ItemVendaId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ItemVendaId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

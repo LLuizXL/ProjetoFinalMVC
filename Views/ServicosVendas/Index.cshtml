@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Index";
+    {
+        <style>
+            body {
+                background-image: url('@Url.Content("~/images/background3.jpg")') !important;
+                opacity: 0.8;
+            }
+        </style>
+    }
 }
 
 <h1 class="text-center index-paginas">Serviços</h1>
@@ -13,28 +21,30 @@
 
     </a>
 </p>
+<div class="table-responsive">
+
 <table class="table">
     <thead>
         <tr>
-            <th>
+                <th class="custom-table text-light">
                 @Html.DisplayNameFor(model => model.Servico)
             </th>
-            <th>
+                <th class="custom-table text-light">
                 @Html.DisplayNameFor(model => model.Venda)
             </th>
-            <th></th>
+                <th class="custom-table text-light"></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+                    <td class="custom-table text-light">
                 @Html.DisplayFor(modelItem => item.Servico.Nome)
             </td>
-            <td>
+                    <td class="custom-table text-light">
                 @Html.DisplayFor(modelItem => item.Venda.VendaId)
             </td>
-            <td>
+                    <td class="custom-table text-light">
                 <a asp-action="Edit" asp-route-id="@item.ServicoVendaId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.ServicoVendaId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ServicoVendaId">Delete</a>
@@ -43,3 +53,4 @@
 }
     </tbody>
 </table>
+</div>

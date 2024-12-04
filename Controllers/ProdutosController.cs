@@ -23,7 +23,24 @@ namespace ProjetoBackend.Controllers
         public async Task<IActionResult> Index()
         {
             var produtos = await _context.Produtos.ToListAsync();
+
             return View(produtos.OrderBy(p => p.Nome));
+
+        }
+        // GET: Ação de busca de Produtos
+        public async Task<IActionResult> Search(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+            {
+                // Se o nome for nulo ou vazio, retorne todos os produtos ordenados por nome.
+                var produtos = await _context.Produtos.ToListAsync();
+                return View("Index", produtos.OrderBy(p => p.Nome));
+            }
+
+            // Filtra os produtos com base no nome fornecido.
+            var produtoFiltrado = await _context.Produtos.Where(p => p.Nome.Contains(nome)).ToListAsync();
+
+            return View("Index", produtoFiltrado.OrderBy(p => p.Nome));
         }
 
         // GET: Produtos/Details/5

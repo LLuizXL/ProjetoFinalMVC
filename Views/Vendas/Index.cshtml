@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Página de Vendas";
+
     {
 
         <style>
@@ -21,80 +22,78 @@
         <a asp-action="Create" class="btn btn-info btn-lg botao-add text-light">
             <ion-icon name="add-circle-outline"></ion-icon>
             ADICIONAR
-
         </a>
     </div>
-    </div>
+</div>
 
 <div class="table-responsive">
 
-<table class="table custom-table">
-    <thead>
-        <tr>
-            <th class="custom-table text-light">
-                @Html.DisplayNameFor(model => model.NotaFiscal)
-            </th>
-            <th class="custom-table text-light">
-                @Html.DisplayNameFor(model => model.Cliente)
-            </th>
-            <th class="custom-table text-light">
-                @Html.DisplayNameFor(model => model.DataVenda)
-            </th>
-            <th class="custom-table text-light">
-                @Html.DisplayNameFor(model => model.ValorTotal)
-            </th>
-            <th class="custom-table text-light"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table custom-table">
+        <thead>
             <tr>
-                <td class="custom-table text-light">
-                    @Html.DisplayFor(modelItem => item.NotaFiscal)
-                </td>
-                <td class="custom-table text-light">
-                    @Html.DisplayFor(modelItem => item.Cliente.Celular)
-                </td>
-                <td class="custom-table text-light">
-                    @Html.DisplayFor(modelItem => item.DataVenda)
-                </td>
-                <td class="custom-table text-light">
-                    @Html.DisplayFor(modelItem => item.ValorTotal)
-                </td>
-                <td class="custom-table text-light">
-
-
-                    <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.VendaId">
-                        Editar
-                    </a>
-                    <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.VendaId">
-                        Deletar
-                    </a>
-
-                    <ion-icon class="dropdown-toggle ms-2 text-warning" name="ellipsis-vertical-outline" data-bs-toggle="dropdown" aria-expanded="false"> </ion-icon>
-
-                    <div class="dropdown-menu dropdown-menu-dark">
-                        <a class=" text-decoration-none text-light ms-3" asp-controller="ItensVendas" asp-action="Index" asp-route-id="@item.VendaId">
-                            Itens da compra
-
-                        </a>
-
-                        <hr class="dropdown-divider-light">
-
-
-                        <a class="text-decoration-none text-light ms-3" asp-controller="ServicosVendas" asp-action="Index" asp-route-id="@item.VendaId">
-                            Serviços
-
-                        </a>
-
-                    </div>
-
-                </td>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.NotaFiscal)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.Cliente)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.DataVenda)
+                </th>
+                <th class="custom-table text-light">
+                    @Html.DisplayNameFor(model => model.ValorTotal)
+                </th>
+                <th class="custom-table text-light"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.NotaFiscal)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.Cliente.Nome)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.DataVenda)
+                    </td>
+                    <td class="custom-table text-light">
+                        @Html.DisplayFor(modelItem => item.ValorTotal)
+                    </td>
+                    <td class="custom-table text-light">
+
+
+                        <a class="btn btn-info btn-md text-light" asp-action="Edit" asp-route-id="@item.VendaId">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger btn-md ms-1 text-light" asp-action="Delete" asp-route-id="@item.VendaId">
+                            Deletar
+                        </a>
+
+                        <ion-icon class="dropdown-toggle ms-2 text-warning" name="ellipsis-vertical-outline" data-bs-toggle="dropdown" aria-expanded="false"> </ion-icon>
+
+                        <div class="dropdown-menu dropdown-menu-dark">
+                            <a class=" text-decoration-none text-light ms-3" asp-controller="ItensVendas" asp-action="Index" asp-route-id="@item.VendaId">
+                                Produtos
+                            </a>
+
+                            <hr class="dropdown-divider-light">
+
+
+                            <a class="text-decoration-none text-light ms-3" asp-controller="ServicosVendas" asp-action="Index" asp-route-id="@item.VendaId">
+                                Serviços
+
+                            </a>
+
+                        </div>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 

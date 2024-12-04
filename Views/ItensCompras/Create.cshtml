@@ -11,6 +11,7 @@
         </style>
 
     }
+    var idCompraAtual = @ViewData["CompraId"];
 }
 
 <h1>Create</h1>
@@ -18,12 +19,12 @@
 <h4>ItemCompra</h4>
 <hr />
 <div class="row">
-    <form asp-action="Create">
+    <form asp-action="Create" asp-route-id=@idCompraAtual>
         <div class="col-md-4">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CompraId" class="control-label"></label>
-                <select asp-for="CompraId" class="form-control" asp-items="ViewBag.CompraId"></select>
+                <input asp-for="CompraId" class="form-control" value=@idCompraAtual />
             </div>
             <div class="form-group">
                 <label asp-for="ProdutoId" class="control-label"></label>
